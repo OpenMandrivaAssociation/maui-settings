@@ -1,3 +1,6 @@
+%define libname %mklibname maui-settings
+%define devname %mklibname -d maui-settings
+
 Name:		maui-settings
 Version:	1.1.0~20240730
 Release:	1
@@ -90,13 +93,31 @@ BuildRequires:	cmake(KF6WidgetsAddons)
 Requires: qml(org.mauicore.power)
 Requires: cask-server
 Requires: maui-shell
+Requires: %{libname}
 
 %description
 Maui Settings Manager.
 
+%package -n %{libname}
+Summary:	Library files for %{name}
+Group:		System/Libraries
+Requires:	%{name} = %{EVRD}
+
+%description -n %{libname}
+Library files for %{name}
+
+%package -n %{devname}
+Summary:	Development files for %{name}
+Group:		Development/KDE and Qt
+Requires:	%{name} = %{EVRD}
+Requires:	%{libname} = %{EVRD}
+
+%description -n %{devname}
+Development files for %{name}
+
 %prep
 %autosetup -p1 -n %{name}-%{version}
-%cmake_kde5 -G Ninja
+%cmake -G Ninja
 
 %build
 %ninja_build -C build
@@ -105,3 +126,19 @@ Maui Settings Manager.
 %ninja_install -C build
 
 %files
+%{_bindir}/MauiSettings
+%{_datadir}/applications/org.maui.settings.desktop
+%{_datadir}/icons/hicolor/scalable/apps/mauisettings.svg
+%{_datadir}/knotifications6/org.maui.settings.notifyrc
+%{_datadir}/metainfo/org.maui.settings.appdata.xml
+
+%files -n %{libname}
+%{_libdir}/libMauiSettingsLib.so.1*
+%{_libdir}/qt6/plugins/platformthemes/
+%{_libdir}/qt6/qml/org/maui/settings/
+
+%files -n %{devname}
+%{_includedir}/Maui/Settings/
+%{_includedir}/MauiSettingsLib/
+%{_libdir}/cmake/MauiSettingsLib/
+%{_libdir}/libMauiSettingsLib.so
