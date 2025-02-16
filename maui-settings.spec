@@ -117,7 +117,8 @@ Development files for %{name}
 
 %prep
 %autosetup -p1 -n %{name}-%{version}
-%cmake -G Ninja
+%cmake -G Ninja \
+       -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
 %build
 %ninja_build -C build
