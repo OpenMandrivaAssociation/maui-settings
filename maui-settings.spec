@@ -3,12 +3,12 @@
 
 Name:		maui-settings
 Version:	1.1.0~20240730
-Release:	1
+Release:	2
 Summary:	Maui Settings Manager
 Url:		https://github.com/Nitrux/maui-settings
 Source0:	https://github.com/Nitrux/maui-settings/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
 
-License:	 LGPL-3.0
+License:	LGPL-3.0
 Group:		Applications/Productivity/Shell/Maui
 BuildRequires:  appstream
 BuildRequires:	cmake
@@ -36,7 +36,7 @@ BuildRequires:	cmake(KF6Service)
 BuildRequires:	cmake(KF6KIO)
 BuildRequires:	cmake(KF6Kirigami2)
 BuildRequires:	cmake(KF6ConfigWidgets)
-BuildRequires:	cmake(KDecoration2)
+BuildRequires:	cmake(KDecoration3)
 BuildRequires:	cmake(KF6CoreAddons)
 BuildRequires:	cmake(KF6Declarative)
 #BuildRequires:	cmake(KF6Plasma)
@@ -53,7 +53,7 @@ BuildRequires:	cmake(Qt6Xml)
 BuildRequires:	cmake(Qt6Test)
 BuildRequires:  cmake(Qt6WaylandCompositor)
 BuildRequires:	cmake(Qt6WebEngineCore)
-BuildRequires:  cmake(KDED)
+BuildRequires:  cmake(KF6KDED)
 #BuildRequires:  qt5-qtbase-devel
 #BuildRequires:	qt5-qtgraphicaleffects
 #BuildRequires:	qt5-qtdeclarative
