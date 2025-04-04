@@ -3,7 +3,7 @@
 
 Name:		maui-settings
 Version:	1.1.0~20240730
-Release:	2
+Release:	3
 Summary:	Maui Settings Manager
 Url:		https://github.com/Nitrux/maui-settings
 Source0:	https://github.com/Nitrux/maui-settings/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
